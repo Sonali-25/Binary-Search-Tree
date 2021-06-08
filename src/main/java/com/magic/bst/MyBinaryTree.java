@@ -28,4 +28,21 @@ public class MyBinaryTree <T extends Comparable<T>>{
     public int getSize(){
         return getSizeRecursive(root);
     }
+    public MyBinaryNode<T> search(MyBinaryNode<T> current,T key){
+        if(current == null||current.key == key)
+            return current;
+        if(current.key.compareTo(key)>0)
+            return search(current.left,key);
+        else{
+            return search(current.right,key);
+        }
+    }
+    public boolean searchKey(T key){
+        root = search(root,key);
+        if(root != null)
+            return true;
+        else{
+            return false;
+        }
+    }
 }
